@@ -1,4 +1,4 @@
-// SegManager.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+ï»¿// SegManager.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -10,30 +10,30 @@ using namespace std;
 int main()
 {
 	cout << "\t****************************************" << endl;
-	cout << "\t*** ¶ÎÊ½´æ´¢µÄ¹ÜÀí·ÖÅäÓë»ØÊÕ" << endl;
+	cout << "\t*** æ®µå¼å­˜å‚¨çš„ç®¡ç†åˆ†é…ä¸å›æ”¶" << endl;
 	cout << "********************************************" << endl;
 	
-	Dfenpei = NULL; // ÒÑ·ÖÅäÁ´±íÍ·Ö¸Õë
-	Khead = NULL; // ¿ÕÏĞÁ´±íÍ·Ö¸Õë
-	Khead = creatK(); // ´´½¨³õÊ¼¿ÕÏĞÇø
+	Dfenpei = NULL; // å·²åˆ†é…é“¾è¡¨å¤´æŒ‡é’ˆ
+	Khead = NULL; // ç©ºé—²é“¾è¡¨å¤´æŒ‡é’ˆ
+	Khead = creatK(); // åˆ›å»ºåˆå§‹ç©ºé—²åŒº
 	Dhead = NULL;
 	do {
-		cout << endl << "'ÇëÑ¡ÔñÄúÒª½øĞĞµÄ²Ù×÷" << endl;
+		cout << endl << "'è¯·é€‰æ‹©æ‚¨è¦è¿›è¡Œçš„æ“ä½œ" << endl;
 		space(5);
-		cout << "1.·ÖÅäÄÚ´æ¿Õ¼ä" << endl;
+		cout << "1.åˆ†é…å†…å­˜ç©ºé—´" << endl;
 		space(5);
-		cout << "2.»ØÊÕ´æ´¢¿Õ¼ä" << endl;
+		cout << "2.å›æ”¶å­˜å‚¨ç©ºé—´" << endl;
 		space(5);
-		cout << "3.ÏÔÊ¾ÄÚ´æ×ÊÔ´" << endl;
+		cout << "3.æ˜¾ç¤ºå†…å­˜èµ„æº" << endl;
 		space(5);
-		cout << "4.ÍË³ö" << endl;
-		// ÊäÈëÑ¡Ôñ
+		cout << "4.é€€å‡º" << endl;
+		// è¾“å…¥é€‰æ‹©
 		cin >> select;
 		switch (select)
 		{
 		case 1:
-			Dhead = qingqiuD(Dhead); // ´´½¨ÉêÇëÁ´±í
-			Khead = zuixian(Dhead); // ÎªÉêÇëÁ´±í·ÖÅä¿Õ¼ä
+			Dhead = qingqiuD(Dhead); // åˆ›å»ºç”³è¯·é“¾è¡¨
+			Khead = zuixian(Dhead); // ä¸ºç”³è¯·é“¾è¡¨åˆ†é…ç©ºé—´
 			break;
 		case 2:
 			huishou();
@@ -42,10 +42,10 @@ int main()
 			Display();
 			break;
 		case 4:
-			cout << "ÍË³öÏµÍ³" << endl;
+			cout << "é€€å‡ºç³»ç»Ÿ" << endl;
 			break;
 		default:
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÑ¡Ôñ" << endl;
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°é€‰æ‹©" << endl;
 			break;
 		}
 	} while (select != 4);
@@ -57,7 +57,7 @@ int main()
 }
 
 /*
-º¯ÊıÊµÏÖ
+å‡½æ•°å®ç°
 */
 
 kongxian *creatK() {
@@ -72,16 +72,16 @@ kongxian *creatK() {
 Duanbiao* qingqiuD(Duanbiao* head) {
 	Duanbiao *p1, *p2;
 	p1 = p2 = new Duanbiao;
-	cout << "ÇëÊäÈëÇëÇó×ÊÔ´½ø³ÌºÅ" << endl;
+	cout << "è¯·è¾“å…¥è¯·æ±‚èµ„æºè¿›ç¨‹å·" << endl;
 	cin >> jinchengming;
-	cout << "ÇëÊäÈë¶ÎºÅºÍ³¤¶È" << endl;
+	cout << "è¯·è¾“å…¥æ®µå·å’Œé•¿åº¦" << endl;
 	cin >> p1->duannum >> p1->length;
 	p1->next = NULL;
 	if (head != NULL) {
 		p2 = head;
 		while (p2->next!=NULL)
 		{
-			p2 = p2->next; // Ö¸ÏòÒÑ·ÖÅä±íµÄ×îºóÒ»¸ö½Úµã
+			p2 = p2->next; // æŒ‡å‘å·²åˆ†é…è¡¨çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 		}
 	}
 	while (p1->duannum != -1)
@@ -104,9 +104,9 @@ Duanbiao* qingqiuD(Duanbiao* head) {
 }
 
 kongxian *zuixian(Duanbiao* head) {
-	kongxian *pK; // ¿ÕÏĞÁ´±íÍ·Ö¸Õë
-	Duanbiao *p1, *p2; // ÒÑ·ÖÅäÁ´±í½Úµã
-	Duanbiao *pD = head;// ÇëÇó¶Î±íÍ·Ö¸Õë
+	kongxian *pK; // ç©ºé—²é“¾è¡¨å¤´æŒ‡é’ˆ
+	Duanbiao *p1, *p2; // å·²åˆ†é…é“¾è¡¨èŠ‚ç‚¹
+	Duanbiao *pD = head;// è¯·æ±‚æ®µè¡¨å¤´æŒ‡é’ˆ
 	Duanbiao *pf = Dfenpei;
 	p1 = p2 = new Duanbiao;
 	p1->next = NULL;

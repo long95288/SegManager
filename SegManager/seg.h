@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<iomanip>
 #include<string>
 
@@ -6,12 +6,12 @@
 
 using namespace std;
 
-// ¶ÎµÄ½á¹¹Ìå
+// æ®µçš„ç»“æ„ä½“
 struct kongxian {
 	unsigned int length;
 	unsigned int addr;
 	int flag;
-	kongxian *next; // ÏÂÒ»¶ÎµÄÖ¸Õë
+	kongxian *next; // ä¸‹ä¸€æ®µçš„æŒ‡é’ˆ
 };
 
 struct Duanbiao
@@ -20,15 +20,15 @@ struct Duanbiao
 	unsigned int duannum;
 	unsigned int addr;
 	unsigned int length;
-	int flag; // ÄÚ´æ»òÍâ´æ
+	int flag; // å†…å­˜æˆ–å¤–å­˜
 	Duanbiao *next;
 };
 
-kongxian *Khead; // ¿ÕÏĞÁ´±íÍ·Ö¸Õë
-kongxian *creatK(); // ´´½¨³õÊ¼¿ÕÏĞÇø
-Duanbiao *Dhead; // ÇëÇó¶Î±íÍ·Ö¸Õë
-Duanbiao *Dfenpei; // ÒÑ·ÖÅäµÄÁ´±íÍ·
-Duanbiao *qingqiuD(Duanbiao *head); // ÊäÈëÇëÇóµÄ½ø³Ì¼°¸÷¶Î
+kongxian *Khead; // ç©ºé—²é“¾è¡¨å¤´æŒ‡é’ˆ
+kongxian *creatK(); // åˆ›å»ºåˆå§‹ç©ºé—²åŒº
+Duanbiao *Dhead; // è¯·æ±‚æ®µè¡¨å¤´æŒ‡é’ˆ
+Duanbiao *Dfenpei; // å·²åˆ†é…çš„é“¾è¡¨å¤´
+Duanbiao *qingqiuD(Duanbiao *head); // è¾“å…¥è¯·æ±‚çš„è¿›ç¨‹åŠå„æ®µ
 kongxian *zuixian(Duanbiao *head); // 
 kongxian *sort(kongxian *head);
 int huishou();
