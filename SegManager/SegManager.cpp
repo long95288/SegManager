@@ -120,9 +120,133 @@ kongxian *zuixian(Duanbiao* head) {
 	// 
 	for (pD; pD != NULL; pD = pD->next) {
 		pK = Khead;
-		for (pK; pK != NULL; pK = pK->next) {
-
+		for (pK; pK != NULL; pK = pK->next) { // 从空闲区表顺序查找
+			if (pK->length >= pD->length) {
+				p1->flag = 1;
+				p1->jincheng = pD->jincheng;
+				p1->duannum = pD->duannum;
+				p1->addr = pK->addr;
+				p1->length = pD->length;
+				if (Dfenpei == NULL) {
+					Dfenpei = p1;
+				}
+				else {
+					p2->next = p1;
+				}
+				p2 = p1;
+				p1 = new Duanbiao;
+				p1->next = NULL;
+				if (pK->length == pD->length){
+					pK = pK->next;
+					break;
+				}
+				else {
+					pK->addr = (p2->addr) + (p2->length);
+					pK->length = pK->length - pD->length;
+					break;
+				}
+				continue;
+			}
 		}
 	}
+	Dhead = NULL;
+	delete p1;
+	return Khead;
+}
 
+//  回收内存函数
+int huishou() {
+	ch ='\0';
+label2:
+	space(5);
+	cout << "1.回收整个进程" << endl;
+	space(5);
+	cout << "2.回收一个段" << endl;
+	cin >> ch;
+	if (ch == '1') {
+		jinchenghuishou();
+	}
+	else if (ch == '2') {
+		// 段回收
+		duanhuishou();
+	}
+	else {
+		cout << "输入错误，请重新输入" << endl;
+		goto label2;
+	}
+	return 0;
+}
+
+// 进程回收函数
+int jinchenghuishou() {
+	kongxian *p; // 存放回收的节点
+	kongxian *pK; // 
+	Duanbiao *pf = Dfenpei;
+	p = new kongxian;
+	p->next = NULL;
+
+	cout << "输入要回收的进程号" << endl;
+	cin >> jinchengming;
+	cout << endl;
+	for (; pf != NULL; pf = pf->next) {
+		if (jinchengming == Dfenpei->jincheng) {
+			p->length = Dfenpei->length;
+			p->addr = Dfenpei->addr;
+			Dfenpei = Dfenpei->next; // 分配指针指向下一个
+			pf = Dfenpei;
+			if (p->addr < Khead->addr) {
+				p->next = Khead;
+				Khead = p;
+				p = new kongxian;
+				continue;
+			}
+			pK = Khead;
+			for (; pK != NULL; pK = pK->next) {
+				if (p->addr < pK->addr) {
+					p->next = pK;
+					pK = p;
+					pf = pf->next;
+					pf = Dfenpei;
+					p = new kongxian;
+					continue;
+				}
+				// continue;
+			}
+			if (pK == NULL) {
+				pK = p;
+				p = new kongxian;
+				continue;
+			}
+		}
+	}
+	Khead = sort(Khead); // 将空闲的进行整理
+}
+
+// 段回收
+int duanhuishou() {
+	int num = 0;
+	kongxian *p;
+	kongxian *pK; // 
+	Duanbiao *pf = Dfenpei;
+	p = new kongxian;
+	p->length = 0;
+	p->next = NULL;
+
+	if (Dfenpei == NULL) {
+		cout << "没有已经分配的段存在" << endl;
+	}
+	cout << "输入要回收的进程号" << endl;
+	cin >> jinchengming;
+	cout << "输入要回收的段号" << endl;
+	cin >> num;
+	if (jinchengming == Dfenpei->jincheng&&num == Dfenpei->duannum) {
+		p->length = Dfenpei->length;
+		p->addr = Dfenpei->addr;
+		Dfenpei = Dfenpei->next;
+		goto label5;
+	}
+label5:
+	if (true) {
+
+	}
 }
