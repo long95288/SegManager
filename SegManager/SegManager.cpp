@@ -6,9 +6,10 @@
 #include <iostream>
 
 using namespace std;
-
+/*
 int main()
 {
+	/*
 	cout << "\t****************************************" << endl;
 	cout << "\t*** 段式存储的管理分配与回收" << endl;
 	cout << "********************************************" << endl;
@@ -50,16 +51,18 @@ int main()
 		}
 	} while (select != 4);
 
+	
 	int i = 0;
 	cin >> i;
     return 0;
 	
 }
+*/
 
 /*
 函数实现
 */
-
+/*
 kongxian *creatK() {
 	kongxian *p = new kongxian;
 	p->length = neicun;
@@ -220,6 +223,7 @@ int jinchenghuishou() {
 		}
 	}
 	Khead = sort(Khead); // 将空闲的进行整理
+	return 0;
 }
 
 // 段回收
@@ -249,4 +253,6 @@ label5:
 	if (true) {
 
 	}
+	return 0;
 }
+*/

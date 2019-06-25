@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SegManager", "SegManager\SegManager.vcxproj", "{15B4CFE1-6789-45A7-8BBC-9FECB5B30C28}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemLib", "MemLib\MemLib.vcxproj", "{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{15B4CFE1-6789-45A7-8BBC-9FECB5B30C28}.Release|x64.Build.0 = Release|x64
 		{15B4CFE1-6789-45A7-8BBC-9FECB5B30C28}.Release|x86.ActiveCfg = Release|Win32
 		{15B4CFE1-6789-45A7-8BBC-9FECB5B30C28}.Release|x86.Build.0 = Release|Win32
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Debug|x64.ActiveCfg = Debug|x64
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Debug|x64.Build.0 = Debug|x64
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Debug|x86.ActiveCfg = Debug|Win32
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Debug|x86.Build.0 = Debug|Win32
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Release|x64.ActiveCfg = Release|x64
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Release|x64.Build.0 = Release|x64
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Release|x86.ActiveCfg = Release|Win32
+		{CBC2F946-FCDB-4208-9D2F-8AF5842F884E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
