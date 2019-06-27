@@ -1,9 +1,13 @@
 ﻿#pragma once
 
-// 内存模型
-int Mem[1024];
 
-// 程序
+/*
+段式存储的头文件
+*/
+
+int mem = 1024; // 存储区为1024
+int current_seg_num = 0; // 当前的段号
+						 // 程序段结构体
 struct program
 {
 	int pid; // 程序的唯一的id
@@ -25,8 +29,9 @@ struct program
 	int stack_length;  // 长度
 };
 
+program *programHead; // 程序头
 
-// 段表项
+					  // 段表项
 struct Segment_table_item
 {
 	int seg_num; // 段号
@@ -34,8 +39,9 @@ struct Segment_table_item
 	int base_addr; // 基址
 	Segment_table_item *next; // 下一个段指针
 };
+Segment_table_item *seg_table_head; // 段表头
 
-// 空闲区块
+
 struct Idle_section
 {
 	int addr;   // 起始地址
@@ -43,47 +49,46 @@ struct Idle_section
 	Idle_section *next; // 下一个
 };
 
-// pid -> program
-program *getProgram(int pid);
-/*
-相关全局变量
-*/
-// 程序
-program *program_head; // 程序起始头
+Idle_section *Idle_Head; // 空闲头
 
-// 创建新的程序块
-program createProgram(
-	int pid,
-	int Main_length,
-	int Sub_length,
-	int Data_length,
-	int Stack_length);
-
- // 段表
-Segment_table_item *seg_table_head; // 头指针
-int seg_table_max_num = 0; // 段表当前最大标号
-
-// 空闲区
-Idle_section *idle_head; // 空闲区链表头
-
-/*
-相关函数
-*/
-
-// 初始化,负责初始化空闲表和段表
 void init();
 
-// 是否可分配,输入请求长度，判断是否可分配
-bool isAllocatable(int length);
+// pid 是否有效，是否重复
+bool pidValified(int pid);
+// 创建新的程序
+program *createProgram(
+	int pid, // pid
+	int main_length, // main段
+	int data_length // 数据段
+	);
 
-// 输入程序的pid,为该程序分配内存空间
-int Allocate(int pid);
 
-// 回收内存，输入参数为段号
-int RecoveredMemory(int seg_num);
+// 根据pid来分配内存
+void AllocateMemById(int pid);
+// 为程序分配段表
+void Allocate(program *pro);
 
-// 整理空闲区,整理外碎片
-void sortIdle();
+// 是否可以为length1和length2分配内存
+bool Allocatable(int length1, int length2);
+// 为长度为length的分配段表
+// 返回段号
+int allocateSeg(int length);
 
-// 测试
-// void test();
+// 为长度为length的分配内存空间
+// 返回基地址
+int allocateMem(int length);
+
+// 根据段号回收内存
+void RecycleMem(int seg_num);
+
+// 根据pid回收内存
+void RecycleMemByPid(int pid);
+
+// 整理空闲区
+void sort();
+
+// 显示模块
+void display(); // 显示整体信息
+void printProgram(); // 显示应用信息
+void printIdle();    // 显示空闲信息
+void printSegment(); // 显示段表信息
